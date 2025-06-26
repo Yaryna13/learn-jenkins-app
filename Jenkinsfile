@@ -35,6 +35,12 @@ pipeline {
 
             }
         }
+        stage('Preload Playwright') {
+            agent any
+            steps {
+                sh 'docker pull mcr.microsoft.com/playwright:v1.39.0-focal'
+            }
+        }
 
         stage('E2E') {
             agent {
