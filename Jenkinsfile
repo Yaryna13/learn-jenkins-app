@@ -37,10 +37,6 @@ pipeline {
         }
 
         stage('E2E') {
-            steps1 {
-                // окремий крок, щоб підтягнути образ
-                sh 'docker pull mcr.microsoft.com/playwright:v1.39.0-focal'
-            }
             agent {
                 docker {
                     image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
@@ -49,6 +45,7 @@ pipeline {
             }        
             steps {
                 sh '''
+                    docker pull mcr.microsoft.com/playwright:v1.39.0-jammy
                     npm install serve
                     node_modules/.bin/serve -s build &
                     sleep 40
