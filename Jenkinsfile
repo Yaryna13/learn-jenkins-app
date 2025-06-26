@@ -51,7 +51,6 @@ pipeline {
             }        
             steps {
                 sh '''
-                    docker pull mcr.microsoft.com/playwright:v1.39.0-focal
                     npm install serve
                     node_modules/.bin/serve -s build &
                     sleep 40
