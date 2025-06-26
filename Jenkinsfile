@@ -39,13 +39,13 @@ pipeline {
         stage('E2E') {
             agent {
                 docker {
-                    image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
+                    image 'mcr.microsoft.com/playwright:v1.39.0-focal'
                     reuseNode true
                 }              
             }        
             steps {
                 sh '''
-                    docker pull mcr.microsoft.com/playwright:v1.39.0-jammy
+                    docker pull mcr.microsoft.com/playwright:v1.39.0-focal
                     npm install serve
                     node_modules/.bin/serve -s build &
                     sleep 40
