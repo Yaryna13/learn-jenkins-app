@@ -37,7 +37,7 @@ pipeline {
         }
 
         stage('E2E') {
-            steps {
+            steps1 {
                 // окремий крок, щоб підтягнути образ
                 sh 'docker pull mcr.microsoft.com/playwright:v1.39.0-focal'
             }
