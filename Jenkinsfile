@@ -66,7 +66,7 @@ pipeline {
                         sh '''
                             npm install serve
                             node_modules/.bin/serve -s build &
-                            sleep 20
+                            sleep 10
                             npx playwright test --reporter=html
                         '''
 
@@ -90,7 +90,7 @@ pipeline {
                 sh '''
                     npm install netlify-cli@20.1.1
                     node_modules/.bin/netlify --version
-                    echo 'Deploying with site_id
+                    echo 'Deploying with site_id'
                     node_modules/.bin/netlify status
                 '''
             }
